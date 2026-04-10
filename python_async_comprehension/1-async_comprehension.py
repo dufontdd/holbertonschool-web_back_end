@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
-"""Concurrent coroutines module"""
-import asyncio
+"""Async Comprehension"""
 from typing import List
-wait_random = __import__('0-basic_async_syntax').wait_random
+async_generator = __import__('0-async_generator').async_generator
 
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
-    """Spawn wait_random n times and return sorted delays"""
-    tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
-    delays = []
-    for coro in asyncio.as_completed(tasks):
-        delay = await coro
-        delays.append(delay)
-    return delays
+async def async_comprehension() -> List[float]:
+    """collect 10 random numbers using an async comprehension."""
+    return [i async for i in async_generator()]
