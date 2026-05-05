@@ -1,13 +1,3 @@
-export default function guardrail(mathFunction) {
-  const queue = [];
-
-  try {
-    queue.push(mathFunction());
-  } catch (error) {
-    queue.push(`${error}`);
-  } finally {
-    queue.push('Guardrail was processed');
-  }
-
-  return queue;
+export default function getResponseFromAPI() {
+  return new Promise((resolve) => resolve());
 }
